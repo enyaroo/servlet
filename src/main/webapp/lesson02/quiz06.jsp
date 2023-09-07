@@ -33,7 +33,7 @@
 							for (int i = 0; i < goodsList.size(); i++) {
 						%>
 						<tr>
-							<th scope="row"><%= (i + 1) %></th>
+							<td scope="row"><%= (i + 1) %></td>
 							<td><%= goodsList.get(i) %></td>
 						</tr>
 						<%
@@ -59,7 +59,7 @@
 								String goods = iter.next();
 						%>
 						<tr>
-							<th scope="row"><%= listNum %></th>
+							<td scope="row"><%= listNum %></td>
 							<td><%= goods %></td>
 						</tr>
 						<%
@@ -84,7 +84,7 @@
 							for (String goods : goodsList) {
 						%>
 						<tr>
-							<th scope="row"><%= listNum %></th>
+							<td scope="row"><%= listNum %></td>
 							<td><%= goods %></td>
 						</tr>
 						<%
