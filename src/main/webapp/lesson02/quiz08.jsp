@@ -81,7 +81,7 @@
 					<tr>
 						<td><%= bookId %></td>
 						<td class="col-1"><img src=<%= bookImageUrl %> class="img-fluid"></td>
-						<td><a href="/localhost/quiz08.jsp?id=<%= bookId %>"><%= bookTitle %></a></td>
+						<td><a href="/lesson02/quiz08_1.jsp?id=<%= bookId %>"><%= bookTitle %></a></td>
 					</tr>
 				<%
 					}
