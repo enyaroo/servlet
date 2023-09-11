@@ -72,11 +72,11 @@
 			<div class="container d-flex justify-content-center">
 				<table>
 					<tr>
-						<td rowspan="3"><img src=<%= (String)newMap.get("image") %> width="200px"></td>
+						<td rowspan="3"><img src=<%= (String)newMap.get("image") %> alt="표지 이미지" width="300px"></td>
 						<td class="align-top pl-2">
-							<h1><b><%= newMap.get("title") %></b></h1>
-							<h2 class="text-info"><%= newMap.get("author") %></h2>
-							<h3 class="text-secondary"><%= newMap.get("publisher") %></h3>
+							<div class="display-1 font-weight-bold"><%= newMap.get("title") %></div>
+							<div class="display-2 text-info"><%= newMap.get("author") %></div>
+							<div class="display-4 text-secondary"><%= newMap.get("publisher") %></div>
 						</td>
 					</tr>
 				</table>			

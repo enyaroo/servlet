@@ -20,10 +20,10 @@
 			<h1>책 목록</h1>
 			<table class="table">
 				<thead>
-					<tr>
-						<th>id</th>
-						<th>표지</th>
-						<th>제목</th>
+					<tr class="row"> <%-- row 클래스를 설정하면 표의 셀 가로 비율을 정할 수 있다 --%>
+						<th class="col-1">id</th>
+						<th class="col-2">표지</th>
+						<th class="col-9">제목</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -78,10 +78,10 @@
 						String bookImageUrl = (String)bookMap.get("image");
 						String bookTitle = (String)bookMap.get("title");
 				%>
-					<tr>
-						<td><%= bookId %></td>
-						<td class="col-1"><img src=<%= bookImageUrl %> class="img-fluid"></td>
-						<td><a href="/lesson02/quiz08_1.jsp?id=<%= bookId %>"><%= bookTitle %></a></td>
+					<tr class="row">
+						<td class="col-1"><%= bookId %></td>
+						<td class="col-2"><img src=<%= bookImageUrl %> alt="표지" width="50"></td>
+						<td class="col-9"><a href="/lesson02/quiz08_1.jsp?id=<%= bookId %>"><%= bookTitle %></a></td>
 					</tr>
 				<%
 					}
