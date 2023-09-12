@@ -56,19 +56,20 @@
 		</tr>
 	</thead>
 	<tbody>
+		<%
+		for (Map<String, String> newMap : list) {
+			// 카테고리가 null일때(전체) 또는 카테고리와 일치할때
+			if (newMap.get("category").equals(selectedMenu) || selectedMenu == null) {
+		%>
 		<tr>
-			<%
-				for (Map<String, String> newMap : list) {
-					if (newMap.get("category").equals(selectedMenu)) {
-			%>
-						<td><%= newMap.get("ch") %></td>
-						<td><%= newMap.get("name") %></td>
-						<td><%= newMap.get("category") %></td>
-			<%
-					}
-				}
-			%>
+			<td><%=newMap.get("ch")%></td>
+			<td><%=newMap.get("name")%></td>
+			<td><%=newMap.get("category")%></td>
 		</tr>
+		<%
+			}
+		}
+		%>
 	</tbody>
 
 </table>
