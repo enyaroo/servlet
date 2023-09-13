@@ -1,3 +1,4 @@
+<%@page import="java.util.Iterator"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Map"%>
@@ -82,32 +83,26 @@ musicList.add(musicInfo);
 <div class="d-flex mt-4 border border-success p-3">
 	<%-- 파라미터 가져오기 --%>
 	<%
-	String link = request.getParameter("songid"); // songtable.jsp에서 유저가 누른 a href의 songid
-	String thumbnail = null;
-	String singer = null;
-	String time = null;
-	String composer = null;
-	String lyricist = null;
-	
-	for (Map<String, Object> newMap : musicList) {
-		if (newMap.get("id").equals(link)) {
-			thumbnail = (String)newMap.get("thumbnail");	
-			singer = (String)newMap.get("singer");	
-			time = (String)newMap.get("time");	
-			composer = (String)newMap.get("composer");	
-			lyricist = (String)newMap.get("lyricist");	
-		}
-	}
-	%>
+	int link = Integer.parseInt(request.getParameter("songid"));
 
+	Iterator<Map<String, Object>> iter = musicList.iterator();
+	while (iter.hasNext()) {
+		Map<String, Object> test = iter.next();
+		if ((Integer)test.get("id") == link) {
+	%>
 	<%-- 이미지 --%>
 	<div class="mr-3">
-		<img src="<%= thumbnail %>" alt="앨범 표지" width="150">
+		<img src="<%= test.get("thumbnail") %>" alt="앨범 표지" width="150">
 	</div>
 	<%-- 가수 정보 --%>
 	<div class="ml-3">
-		<h3><%=singer%></h3>
-		<div><%=time%></div>
-		<div><%=composer%></div>
+		<h3><%= test.get("title") %></h3>
+		<div>작사</div>
+		<div>작곡</div>
 	</div>
+	<%
+		break;
+		}
+	}
+	%>
 </div>

@@ -44,7 +44,7 @@
     list.add(map);
     
     String selectedMenu = request.getParameter("menu");
-    
+        
 %>
 
 <table>
@@ -71,5 +71,4 @@
 		}
 		%>
 	</tbody>
-
 </table>

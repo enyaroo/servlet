@@ -98,7 +98,7 @@ musicList.add(musicInfo);
 			
 			<tr>
 				<td><%= newMap.get("id") %></td>
-				<td><a href="/lesson03/quiz02/main2?songid=<%= newMap.get("id") %>"><%= newMap.get("title") %></a></td>
+				<td><a href="/lesson03/quiz02/main2.jsp?songid=<%= newMap.get("id") %>"><%= newMap.get("title") %></a></td>
 				<td><%= newMap.get("album") %></td>
 			</tr>
 			

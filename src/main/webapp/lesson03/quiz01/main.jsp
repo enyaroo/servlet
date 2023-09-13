@@ -20,10 +20,13 @@
 				<h2 class="font-weight-bold text-danger">Sk BroadBand IPTV</h2>
 			</header>
 			<div>
-				<jsp:include page="navbar.jsp" />	
+				<jsp:include page="navbar.jsp" />
+				<% String select = request.getParameter("menu"); %>
 			</div>
 			<div>
-				<jsp:include page="content.jsp" />
+				<jsp:include page="content.jsp" >
+					<jsp:param name="menu" value="<%= select %>" />
+				</jsp:include>
 			</div>
 		</div>
 	</body>
