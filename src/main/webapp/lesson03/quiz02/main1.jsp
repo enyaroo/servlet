@@ -29,7 +29,7 @@
 					<jsp:include page="songtable.jsp" />
 				</section>
 				<hr>
-				<footer class="text-secondary">Copyright 2021. Melong All Rights Reserved</footer>
+				<jsp:include page="footer.jsp" />
 			</div>
 		</body>
 	</html>

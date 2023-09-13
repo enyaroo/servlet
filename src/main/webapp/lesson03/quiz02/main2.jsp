@@ -24,12 +24,12 @@
 				<jsp:include page="nav.jsp" />
 				<section>
 					<%-- 곡 정보 영역 --%>
-					<jsp:include page="songinfo.jsp" />
+					<jsp:include page="songinfo_1.jsp" />
 					<%-- 가사 --%>
 					
 				</section>
 				<hr>
-				<footer class="bg-warning"></footer>
+				<jsp:include page="footer.jsp" />
 			</div>
 		</body>
 	</html>

@@ -81,45 +81,56 @@ musicList.add(musicInfo);
 %>
 
 <div class="d-flex mt-4 border border-success p-3">
-	<%-- 파라미터 가져오기 --%>
 	<%
-	int link = Integer.parseInt(request.getParameter("songid"));
+	// 결과로 출력할 곡 정보
+	Map<String, Object> target = null;
 
-	Iterator<Map<String, Object>> iter = musicList.iterator();
-	while (iter.hasNext()) {
-		Map<String, Object> test = iter.next();
-		if ((Integer)test.get("id") == link) {
+	// get songid로 파라미터 가져오기
+	// 곡 목록에서 제목을 클릭하고 오는 경우 (id로 조회)
+	if (request.getParameter("songid") != null) {
+		int link = Integer.parseInt(request.getParameter("songid"));	
+		for (Map<String,Object> test : musicList) {
+			if (link == (Integer)test.get("id")) {
+				target = test;
+				break;
+			}
+		}
+	}
+	
+	// get 검색으로 파라미터 가져오기
+	// 상단에서 검색한 경우
+	if (request.getParameter("search") != null) {
+		String search = request.getParameter("search");
+		for (Map<String,Object> test : musicList) {
+			if (test.get("title").equals(search)) {
+				target = test;
+				break;
+			}
+		}
+	}
+	
 	%>
 	<%-- 이미지 --%>
 	<div class="mr-3">
-		<img src="<%= test.get("thumbnail") %>" alt="앨범 표지" width="150">
+		<img src="<%= target.get("thumbnail") %>" alt="앨범 표지" width="150">
 	</div>
-	<%-- 가수 정보 --%>
+	<%-- 곡 정보 --%>
 	<div class="ml-3">
-		<h1><%= test.get("title") %></h1>
-		<div><%= test.get("singer") %></div>
-		<table>
-			<tr>
-				<td>앨범</td>
-				<td><%= test.get("album") %></td>
-			</tr>
-			<tr>
-				<td>재생시간</td>
-				<td><%= test.get("time") %></td>
-			</tr>
-			<tr>
-				<td>작곡가</td>
-				<td><%= test.get("composer") %></td>
-			</tr>
-			<tr>
-				<td>작사가</td>
-				<td><%= test.get("lyricist") %></td>
-			</tr>
-		</table>
+		<h1><%= target.get("title") %></h1>
+		<div class="text-success font-weight-bold"><%= target.get("singer") %></div>
+		<div class="d-flex text-secondary">
+			<div class="mr-4">
+				<div>앨범</div>
+				<div>재생시간</div>
+				<div>작곡가</div>
+				<div>작사가</div>
+			</div>
+			<div>
+				<div><%= target.get("album") %></div>
+				<div><%= (Integer)target.get("time") / 60 %> : <%= (Integer)target.get("time") % 60 %></div>
+				<div><%= target.get("composer") %></div>
+				<div><%= target.get("lyricist") %></div>
+			</div>			
+		</div>
 	</div>
-	<%
-		break;
-		}
-	}
-	%>
 </div>
