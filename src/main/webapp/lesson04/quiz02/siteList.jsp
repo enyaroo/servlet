@@ -22,7 +22,7 @@
 				String selectQuery = "select * from `site`";
 				ResultSet res = ms.select(selectQuery);
 			%>
-				<table class="table text-center">
+				<table class="table text-center mt-5">
 					<thead>
 						<tr>
 							<th class="col-3">사이트</th>
@@ -36,7 +36,7 @@
 					%>
 						<tr>
 							<td class="col-3"><%= res.getString("name") %></td>
-							<td class="col-7"><a href="<%= res.getString("url") %>"><%= res.getString("url") %></a></td>
+							<td class="col-7"><a href="<%= res.getString("url") %>" target="_blank"><%= res.getString("url") %></a></td>
 							<td class="col-2"><a class="text-muted text-decoration-none" href="/lesson04/delete-site?id=<%= res.getInt("id") %>">삭제</a></td>
 						</tr>
 					<%
@@ -44,8 +44,10 @@
 					%>
 					</tbody>
 				</table>
-				<div class="d-flex justify-content-right"><a class="btn btn-success" href="/lesson04/quiz02/addSite.jsp">즐겨찾기 추가</a></div>
-				
+				<div class="d-flex justify-content-end"><a class="btn btn-success" href="/lesson04/quiz02/addSite.jsp">즐겨찾기 추가</a></div>
+			<%
+				ms.disconnect(); // 연결 해제 필쑤
+			%>	
 		</div>
 		</body>
 	</html>

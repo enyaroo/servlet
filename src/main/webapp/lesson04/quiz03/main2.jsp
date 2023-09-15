@@ -9,23 +9,29 @@
 			<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>		
 			
-			<title>즐겨찾기 추가</title>
+			<style>
+				header {height:100px; background-color:#FF8000;}
+				nav {height:50px;}
+				section {height:500px;}
+				#card {width:200px}
+				footer {height:100px;}
+			</style>
+			<title>홍당무 마켓</title>
 		</head>
 		<body>
-			<div class="container pt-3">
-				<h1 class="font-weight-bold text-dark mb-3">즐겨찾기 추가</h1>
-				<form method="post" action="/lesson04/insert-site">
-					<div class="form-group">
-						<label for="name">사이트명:</label>
-						<input type="text" id="name" name="name" class="form-control col-5" placeholder="이름을 입력하세요">
-					</div>
-					<div class="form-group">
-						<label for="url">사이트 주소:</label>
-						<input type="text" id="url" name="url" class="form-control col-5" placeholder="주소를 입력하세요">
-					</div>
-					<input type="submit" value="추가" class="btn btn-primary">
-					<a href="/lesson04/quiz02/siteList.jsp" class="btn btn-success ml-2">목록으로 이동</a>		
-				</form>		
+			<div class="container">
+				<header class="d-flex justify-content-center align-itmes-center">
+					<jsp:include page="logo.jsp" />
+				</header>
+				<nav>
+					<jsp:include page="nav.jsp" />
+				</nav>
+				<section>
+					<jsp:include page="add.jsp" />
+				</section>
+				<footer class="d-flex justify-content-center align-items-center">
+					<jsp:include page="footer.jsp" />
+				</footer>
 			</div>
 		</body>
 	</html>
